@@ -197,6 +197,9 @@ class StickersViewController: UIViewController, UIGestureRecognizerDelegate {
         bluredView.contentView.addSubview(visualEffect)
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
+        bluredView.clipsToBounds = true
+        bluredView.layer.cornerRadius = 12
+//        view.layer.cornerRadius = 6
         view.insertSubview(bluredView, at: 0)
     }
     

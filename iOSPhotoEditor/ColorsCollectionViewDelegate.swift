@@ -36,6 +36,10 @@ class ColorsCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColl
     
     var stickersViewControllerDelegate : StickersViewControllerDelegate?
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 42, height: 42)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }

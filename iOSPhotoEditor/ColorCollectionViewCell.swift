@@ -11,6 +11,7 @@ import UIKit
 class ColorCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var checkImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,17 +22,22 @@ class ColorCollectionViewCell: UICollectionViewCell {
         colorView.layer.cornerRadius = colorView.frame.width / 2
         colorView.clipsToBounds = true
         colorView.layer.borderWidth = 2.0
-        colorView.layer.borderColor = UIColor.white.cgColor
+        checkImageView.isHidden = true
+        checkImageView.tintColor = .red
+        colorView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
     }
     
     override var isSelected: Bool {
         didSet {
+            checkImageView.tintColor = .red
+            checkImageView.isHidden = !isSelected
             if isSelected {
-                let previouTransform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+//                let previouTransform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                self.colorView.layer.borderWidth = 0
+                self.colorView.layoutIfNeeded()
                 UIView.animate(withDuration: 0.2, animations: {
                     self.colorView.layer.borderWidth = 3.0
-                    self.colorView.transform = previouTransform
-                    self.colorView.layoutIfNeeded()
+//                    self.colorView.transform = previouTransform
 //                    self.colorView.transform = self.colorView.transform.scaledBy(x: 1.3, y: 1.3)
                     },
                 completion: { _ in
@@ -40,6 +46,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
 //                    }
                 })
             } else {
+//                checkImageView.isHidden  = true
                 // animate deselection
                 UIView.animate(withDuration: 0.2, animations: {
                     self.colorView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)

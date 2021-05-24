@@ -18,10 +18,21 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncL-uU-y1P">
                         <rect key="frame" x="34" y="34" width="32" height="32"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vuS-iF-O9P">
+                                <rect key="frame" x="4" y="7.5" width="24" height="17.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="1NF-oX-6Ag"/>
+                            <constraint firstItem="vuS-iF-O9P" firstAttribute="top" secondItem="ncL-uU-y1P" secondAttribute="top" constant="4" id="EaF-WB-xMj"/>
+                            <constraint firstAttribute="bottom" secondItem="vuS-iF-O9P" secondAttribute="bottom" constant="4" id="Haw-8t-vim"/>
                             <constraint firstAttribute="width" constant="32" id="LcG-gU-6ME"/>
+                            <constraint firstAttribute="trailing" secondItem="vuS-iF-O9P" secondAttribute="trailing" constant="4" id="Vfo-uO-AbR"/>
+                            <constraint firstItem="vuS-iF-O9P" firstAttribute="leading" secondItem="ncL-uU-y1P" secondAttribute="leading" constant="4" id="wVR-6e-xOV"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -32,9 +43,13 @@
             </constraints>
             <size key="customSize" width="100" height="99"/>
             <connections>
+                <outlet property="checkImageView" destination="vuS-iF-O9P" id="jiB-aj-xpg"/>
                 <outlet property="colorView" destination="ncL-uU-y1P" id="7PV-0E-mnW"/>
             </connections>
             <point key="canvasLocation" x="59" y="78"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
